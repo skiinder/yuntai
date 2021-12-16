@@ -43,11 +43,6 @@
         <commons-io.version>2.5</commons-io.version>
         <!--spring依赖包-->
         <dynamic.version>3.3.2</dynamic.version>
-        <!--- ES依赖包-->
-        <jest.version>5.3.3</jest.version>
-        <jna.version>4.5.2</jna.version>
-        <commons-compiler.version>2.7.8</commons-compiler.version>
-        <elasticsearch.version>6.6.0</elasticsearch.version>
         <!--presto-->
         <presto.version>0.261</presto.version>
 
@@ -182,28 +177,6 @@
                         <artifactId>*</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-
-            <!--- ES依赖包-->
-            <dependency>
-                <groupId>io.searchbox</groupId>
-                <artifactId>jest</artifactId>
-                <version>${jest.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.java.dev.jna</groupId>
-                <artifactId>jna</artifactId>
-                <version>${jna.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.janino</groupId>
-                <artifactId>commons-compiler</artifactId>
-                <version>${commons-compiler.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.elasticsearch</groupId>
-                <artifactId>elasticsearch</artifactId>
-                <version>${elasticsearch.version}</version>
             </dependency>
 
             <!--presto-->
