@@ -12,6 +12,7 @@
         <module>yuntai-statistics</module>
         <module>yuntai-common</module>
         <module>yuntai-report</module>
+        <module>yuntai-access</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
