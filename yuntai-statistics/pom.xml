@@ -28,6 +28,12 @@
             <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
             <version>3.3.2</version>
         </dependency>
+        <!--clickhouse-->
+        <dependency>
+            <groupId>ru.yandex.clickhouse</groupId>
+            <artifactId>clickhouse-jdbc</artifactId>
+            <version>0.1.55</version>
+        </dependency>
     </dependencies>
     <pluginRepositories>
         <pluginRepository>
