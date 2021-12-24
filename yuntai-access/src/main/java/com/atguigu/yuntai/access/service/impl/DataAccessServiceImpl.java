@@ -3,10 +3,12 @@ package com.atguigu.yuntai.access.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.atguigu.yuntai.access.bean.ConfigBean;
+import com.atguigu.yuntai.access.bean.ConnectorBean;
 import com.atguigu.yuntai.access.bean.ConnectorCache;
 import com.atguigu.yuntai.access.service.DataAccessService;
+import com.atguigu.yuntai.common.utils.Response;
 import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.*;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +24,12 @@ public class DataAccessServiceImpl implements DataAccessService {
 
 
     @Override
-    public JSONObject registerConnector(JSONObject config) {
+    public Response registerConnector(ConnectorBean connector) {
+        Response response = new Response();
         try {
             PostMethod postMethod = new PostMethod(url + "/connectors/");
             StringRequestEntity request = new StringRequestEntity(
-                    config.toJSONString(),
+                    connector.dumpConfig().toJSONString(),
                     "application/json",
                     "UTF-8"
             );
@@ -35,69 +38,101 @@ public class DataAccessServiceImpl implements DataAccessService {
             client.executeMethod(postMethod);
             if (postMethod.getStatusLine().getStatusCode() == 201) {
                 updateCache();
+                response.success(postMethod.getStatusLine().getReasonPhrase());
+            } else {
+                response.fail(postMethod.getStatusLine().getReasonPhrase());
             }
-            JSONObject jsonObject = JSON.parseObject(postMethod.getResponseBodyAsString());
-            return jsonObject;
         } catch (IOException e) {
             e.printStackTrace();
-            return new JSONObject();
+            response.fail(e);
         }
+
+        return response;
     }
 
     @Override
-    public void deleteConnector(String name) {
+    public Response deleteConnector(String name) {
+        Response response = new Response();
         try {
             DeleteMethod method = new DeleteMethod(url + "/connectors/" + name);
             client.executeMethod(method);
             updateCache();
+            if (method.getStatusLine().getStatusCode() == 204) {
+                response.success();
+            } else {
+                response.fail(method.getStatusLine().getReasonPhrase());
+            }
         } catch (IOException e) {
             e.printStackTrace();
+            response.fail(e);
         }
+        return response;
     }
 
     @Override
-    public void pauseConnector(String name) {
+    public Response pauseConnector(String name) {
+        Response response = new Response();
         try {
             PutMethod method = new PutMethod(url + "/connectors/" + name + "/pause");
             client.executeMethod(method);
+            updateCache();
             if (method.getStatusLine().getStatusCode() == 202) {
-                updateCache();
+                response.success();
+            } else {
+                response.fail(method.getStatusLine().getReasonPhrase());
             }
         } catch (IOException e) {
             e.printStackTrace();
+            response.fail(e);
         }
 
+        return response;
     }
 
     @Override
-    public void resumeConnector(String name) {
+    public Response resumeConnector(String name) {
+        Response response = new Response();
         try {
             PutMethod method = new PutMethod(url + "/connectors/" + name + "/resume");
             client.executeMethod(method);
+            updateCache();
             if (method.getStatusLine().getStatusCode() == 202) {
-                updateCache();
+                response.success();
+            } else {
+                response.fail(method.getStatusLine().getReasonPhrase());
             }
         } catch (IOException e) {
             e.printStackTrace();
+            response.fail(e);
         }
+        return response;
     }
 
     @Override
-    public List<String> getConnectorList(String category) {
+    public List<ConnectorBean> getConnectorList(String category) {
+        if (connectorCache.size() == 0) {
+            updateCache();
+        }
+
         return connectorCache.getConnectorList(category);
     }
 
     @Override
-    public JSONObject getStatus(String name) {
+    public ConnectorBean getStatus(String name) {
+
+        if (connectorCache.size() == 0) {
+            updateCache();
+        }
         return connectorCache.getConnector(name);
     }
 
     @Override
-    public void updateConnector(JSONObject config) {
+    public Response updateConnector(ConnectorBean connector) {
+        Response response = new Response();
         try {
-            String name = config.getString("name");
-            JSONObject rawConfig = config.getJSONObject("config");
-            PutMethod method = new PutMethod(url + "/connectors/" + name + "/config");
+            String name = connector.getName();
+            JSONObject rawConfig = connector.getConfig().dump();
+            PutMethod method = new PutMethod(url + "/connectors/" + name + "/connector");
             method.setRequestHeader("Accept", "application/json");
             StringRequestEntity request = new StringRequestEntity(
                     rawConfig.toJSONString(),
@@ -106,26 +141,44 @@ public class DataAccessServiceImpl implements DataAccessService {
             );
             method.setRequestEntity(request);
             client.executeMethod(method);
+            updateCache();
             if (method.getStatusLine().getStatusCode() == 200) {
-                updateCache();
+                response.success(method.getStatusLine().getReasonPhrase());
+            } else {
+                response.fail(method.getStatusLine().getReasonPhrase());
             }
         } catch (IOException e) {
             e.printStackTrace();
+            response.fail(e);
         }
+        return response;
     }
 
     private void updateCache() {
-        connectorCache.clear();
         GetMethod getMethod = new GetMethod(url + "/connectors");
+        connectorCache.clear();
         try {
             client.executeMethod(getMethod);
             JSONArray connectors = JSON.parseArray(getMethod.getResponseBodyAsString());
             for (Object connector : connectors) {
+                //遍历所有名字, 获取已经存在的缓存
                 String name = connector.toString();
-                GetMethod status = new GetMethod(url + "/connectors/" + name);
+                ConnectorBean connectorBean = connectorCache.getConnector(name);
+
+                //获取详情
+                GetMethod config = new GetMethod(url + "/connectors/" + name);
+                client.executeMethod(config);
+                JSONObject connectorConfig = JSON.parseObject(config.getResponseBodyAsString());
+                connectorBean.readConfig(connectorConfig);
+
+                //获取状态
+                GetMethod status = new GetMethod(url + "/connectors/" + name + "/status");
                 client.executeMethod(status);
                 JSONObject connectorStatus = JSON.parseObject(status.getResponseBodyAsString());
-                connectorCache.addConnector(connectorStatus);
+                connectorBean.readState(connectorStatus);
+
+                //更新cache
+                connectorCache.addConnector(connectorBean);
             }
         } catch (IOException e) {
             e.printStackTrace();

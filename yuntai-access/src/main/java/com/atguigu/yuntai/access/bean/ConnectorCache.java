@@ -10,8 +10,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ConnectorCache {
-    private final Map<String, JSONObject> cache;
+    private final Map<String, ConnectorBean> cache;
     private final Map<String, String> categoryMap;
+
+    public int size() {
+        return cache.size();
+    }
 
     public ConnectorCache() {
         cache = new HashMap<>();
@@ -22,9 +26,8 @@ public class ConnectorCache {
         categoryMap.put("mongodb", "io.debezium.connector.mongodb.MongoDbConnector");
     }
 
-    public void addConnector(JSONObject config) {
-        String name = config.getString("name");
-        cache.put(name, config);
+    public void addConnector(ConnectorBean connector) {
+        cache.put(connector.getName(), connector);
     }
 
     public void deleteConnector(String name) {
@@ -35,15 +38,14 @@ public class ConnectorCache {
         cache.clear();
     }
 
-    public List<String> getConnectorList(String category) {
+    public List<ConnectorBean> getConnectorList(String category) {
         return cache.values()
                 .stream()
-                .filter(o -> o.getJSONObject("config").getString("connector.class").equals(categoryMap.get(category)))
-                .map(o -> o.getString("name"))
+                .filter(o -> o.getConfig().getConnectorClass().equals(categoryMap.get(category)))
                 .collect(Collectors.toList());
     }
 
-    public JSONObject getConnector(String name) {
-        return cache.getOrDefault(name, new JSONObject());
+    public ConnectorBean getConnector(String name) {
+        return cache.getOrDefault(name, new ConnectorBean());
     }
 }
