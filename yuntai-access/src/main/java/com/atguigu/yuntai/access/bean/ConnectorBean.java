@@ -1,5 +1,4 @@
 package com.atguigu.yuntai.access.bean;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
