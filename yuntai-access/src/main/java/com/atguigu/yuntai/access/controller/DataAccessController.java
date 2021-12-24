@@ -3,7 +3,9 @@ package com.atguigu.yuntai.access.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.atguigu.yuntai.access.bean.ConnectorBean;
 import com.atguigu.yuntai.access.service.DataAccessService;
+import com.atguigu.yuntai.common.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,44 +19,44 @@ public class DataAccessController {
 
     //新增Connector Post
     @RequestMapping(value = "registerConnector", method = RequestMethod.POST)
-    public JSON registerConnector(@RequestBody JSONObject config) {
-        return dataAccessService.registerConnector(config);
+    public Response registerConnector(@RequestBody ConnectorBean connector) {
+        return dataAccessService.registerConnector(connector);
     }
 
     //删除Connector
     @RequestMapping(value = "deleteConnector", method = RequestMethod.GET)
-    public void deleteConnector(@RequestParam String name) {
-        dataAccessService.deleteConnector(name);
+    public Response deleteConnector(@RequestParam String name) {
+        return dataAccessService.deleteConnector(name);
     }
 
     //暂停Connector
     @RequestMapping(value = "pauseConnector", method = RequestMethod.GET)
-    public void pauseConnector(@RequestParam String name) {
-        dataAccessService.pauseConnector(name);
+    public Response pauseConnector(@RequestParam String name) {
+        return dataAccessService.pauseConnector(name);
     }
 
     //恢复Connector
     @RequestMapping(value = "resumeConnector", method = RequestMethod.GET)
-    public void resumeConnector(@RequestParam String name) {
-        dataAccessService.resumeConnector(name);
+    public Response resumeConnector(@RequestParam String name) {
+        return dataAccessService.resumeConnector(name);
     }
 
     //查询所有Connector
     @RequestMapping(value = "getConnectorList", method = RequestMethod.GET)
-    public List<String> getConnectorList(@RequestParam String category) {
+    public List<ConnectorBean> getConnectorList(@RequestParam String category) {
         return dataAccessService.getConnectorList(category);
     }
 
     //查询Connector详情
     @RequestMapping(value = "getStatus", method = RequestMethod.GET)
-    public JSONObject getStatus(@RequestParam String name) {
+    public ConnectorBean getStatus(@RequestParam String name) {
         return dataAccessService.getStatus(name);
     }
 
     //更新Connector配置 Post
     @RequestMapping(value = "updateConnector", method = RequestMethod.POST)
-    public void updateConnector(@RequestBody JSONObject config) {
-        dataAccessService.updateConnector(config);
+    public Response updateConnector(@RequestBody ConnectorBean connector) {
+        return dataAccessService.updateConnector(connector);
     }
 
     //获取Connector所有Task

@@ -1,67 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6ae96d5-b9bf-4941-ba4e-f67a8b9158f7" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/yuntai-statistics/target/" />
-    <ignored path="$PROJECT_DIR$/yuntai-common/target/" />
-    <ignored path="$PROJECT_DIR$/yuntai-report/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="f6ae96d5-b9bf-4941-ba4e-f67a8b9158f7" name="Default Changelist" comment="数据接入后台">
+      <change afterPath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/bean/ConfigBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/bean/ConnectorBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/bean/ConnectorStatusBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/bean/TaskBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/bean/ConnectorCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/bean/ConnectorCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/controller/DataAccessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/controller/DataAccessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/service/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/service/DataAccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/service/impl/DataAccessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/src/main/java/com/atguigu/yuntai/access/service/impl/DataAccessServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/bean/ConnectorBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/bean/ConnectorBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/bean/ConnectorCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/bean/ConnectorCache.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/controller/DataAccessController.class" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/controller/DataAccessController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/service/DataAccessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/service/DataAccessService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/service/impl/DataAccessServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/yuntai-access/target/classes/com/atguigu/yuntai/access/service/impl/DataAccessServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai-report/yuntai-report.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yuntai.iml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="38" column="14" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yuntai-statistics/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yuntai-common/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yuntai-statistics/src/main/java/com/atguigu/yuntai/statistics/YunTaiStatisticsApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#243#244#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yuntai-report/pom.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,6 +48,22 @@
       <find>spring-boot-maven-plugin</find>
       <find>guava</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="data_access" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -95,11 +84,6 @@
         <option name="userSettingsFile" value="G:\apache-maven-3.5.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -117,10 +101,17 @@
       <select />
     </treeState>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-29" />
     <option name="width" value="1943" />
     <option name="height" value="1045" />
+  </component>
+  <component name="ProjectId" id="22i28w4AO92jPjHUsu1EnCibC4x" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -147,26 +138,78 @@
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1639486582091" />
+    <property name="go.formatter.settings.were.checked" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
     </option>
   </component>
+  <component name="RunManager" selected="Spring Boot.YunTaiAccessApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="YunTaiAccessApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="yuntai-access" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.yuntai.access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.yuntai.access.YunTaiAccessApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="YunTaiStatisticsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="yuntai-statistics" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.yuntai.statistics.YunTaiStatisticsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.YunTaiAccessApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -178,7 +221,17 @@
       <option name="presentableId" value="Default" />
       <updated>1639475793041</updated>
       <workItem from="1639475797128" duration="1786000" />
+      <workItem from="1640305936986" duration="1856000" />
+      <workItem from="1640326138763" duration="10307000" />
     </task>
+    <task id="LOCAL-00001" summary="数据接入后台">
+      <created>1640240363495</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1640240363495</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -224,7 +277,30 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="数据接入后台" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据接入后台" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.apache.commons.httpclient.methods.PostMethod" memberName="httphost" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/yuntai-report/pom.xml">
