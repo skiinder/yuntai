@@ -41,7 +41,7 @@ public class ConnectorCache {
     public List<ConnectorBean> getConnectorList(String category) {
         return cache.values()
                 .stream()
-                .filter(o -> o.getConfig().getConnectorClass().equals(categoryMap.get(category)))
+                .filter(o -> o.getConfig().getConnector_class().equals(categoryMap.get(category)))
                 .collect(Collectors.toList());
     }
 
