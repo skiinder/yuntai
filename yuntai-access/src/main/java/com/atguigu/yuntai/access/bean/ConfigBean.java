@@ -1,6 +1,9 @@
 package com.atguigu.yuntai.access.bean;
 
 import com.alibaba.fastjson.JSONObject;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 public class ConfigBean {
     private String connectorClass;
@@ -13,6 +16,9 @@ public class ConfigBean {
     private String serverName;
     private String port;
     private String databases;
+    private String pluginName;
+    private String tables;
+    private String dbName;
 
     public ConfigBean() {
         connectorClass = "";
@@ -25,6 +31,9 @@ public class ConfigBean {
         serverName = "";
         port = "";
         databases = "";
+        pluginName = "";
+        tables = "";
+        dbName = "";
     }
 
     public void readConfig(JSONObject config) {
@@ -38,6 +47,9 @@ public class ConfigBean {
         serverName = config.getString("database.server.name");
         port = config.getString("database.port");
         databases = config.getString("database.include.list");
+        pluginName = config.getString("plugin.name");
+        tables = config.getString("table.include.list");
+        dbName = config.getString("database.dbname");
     }
 
     public JSONObject dump() {
@@ -51,7 +63,10 @@ public class ConfigBean {
                 .fluentPut("database.history.kafka.topic", historyTopic)
                 .fluentPut("database.server.name", serverName)
                 .fluentPut("database.port", port)
-                .fluentPut("database.include.list", databases);
+                .fluentPut("database.include.list", databases)
+                .fluentPut("plugin.nam", pluginName)
+                .fluentPut("table.include.list",tables)
+                .fluentPut("database.dbname",databases);
         return config;
 
     }
@@ -134,5 +149,29 @@ public class ConfigBean {
 
     public void setDatabases(String databases) {
         this.databases = databases;
+    }
+
+    public String getPluginName() {
+        return pluginName;
+    }
+
+    public void setPluginName(String pluginName) {
+        this.pluginName = pluginName;
+    }
+
+    public String getTables() {
+        return tables;
+    }
+
+    public void setTables(String tables) {
+        this.tables = tables;
+    }
+
+    public String getDbName() {
+        return dbName;
+    }
+
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
     }
 }

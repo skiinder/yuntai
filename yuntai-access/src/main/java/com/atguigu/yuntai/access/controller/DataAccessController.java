@@ -19,42 +19,49 @@ public class DataAccessController {
 
     //新增Connector Post
     @RequestMapping(value = "registerConnector", method = RequestMethod.POST)
+    @CrossOrigin
     public Response registerConnector(@RequestBody ConnectorBean connector) {
         return dataAccessService.registerConnector(connector);
     }
 
     //删除Connector
     @RequestMapping(value = "deleteConnector", method = RequestMethod.GET)
+    @CrossOrigin
     public Response deleteConnector(@RequestParam String name) {
         return dataAccessService.deleteConnector(name);
     }
 
     //暂停Connector
     @RequestMapping(value = "pauseConnector", method = RequestMethod.GET)
+    @CrossOrigin
     public Response pauseConnector(@RequestParam String name) {
         return dataAccessService.pauseConnector(name);
     }
 
     //恢复Connector
     @RequestMapping(value = "resumeConnector", method = RequestMethod.GET)
+    @CrossOrigin
     public Response resumeConnector(@RequestParam String name) {
         return dataAccessService.resumeConnector(name);
     }
 
     //查询所有Connector
     @RequestMapping(value = "getConnectorList", method = RequestMethod.GET)
+    @CrossOrigin
     public List<ConnectorBean> getConnectorList(@RequestParam String category) {
         return dataAccessService.getConnectorList(category);
     }
 
     //查询Connector详情
     @RequestMapping(value = "getStatus", method = RequestMethod.GET)
+    @CrossOrigin
     public ConnectorBean getStatus(@RequestParam String name) {
         return dataAccessService.getStatus(name);
     }
 
     //更新Connector配置 Post
     @RequestMapping(value = "updateConnector", method = RequestMethod.POST)
+    @CrossOrigin
     public Response updateConnector(@RequestBody ConnectorBean connector) {
         return dataAccessService.updateConnector(connector);
     }

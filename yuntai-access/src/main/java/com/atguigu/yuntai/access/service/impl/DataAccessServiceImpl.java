@@ -28,6 +28,7 @@ public class DataAccessServiceImpl implements DataAccessService {
         Response response = new Response();
         try {
             PostMethod postMethod = new PostMethod(url + "/connectors/");
+            String s = connector.dumpConfig().toJSONString();
             StringRequestEntity request = new StringRequestEntity(
                     connector.dumpConfig().toJSONString(),
                     "application/json",
@@ -132,7 +133,7 @@ public class DataAccessServiceImpl implements DataAccessService {
         try {
             String name = connector.getName();
             JSONObject rawConfig = connector.getConfig().dump();
-            PutMethod method = new PutMethod(url + "/connectors/" + name + "/connector");
+            PutMethod method = new PutMethod(url + "/connectors/" + name + "/config");
             method.setRequestHeader("Accept", "application/json");
             StringRequestEntity request = new StringRequestEntity(
                     rawConfig.toJSONString(),
@@ -163,11 +164,15 @@ public class DataAccessServiceImpl implements DataAccessService {
             for (Object connector : connectors) {
                 //遍历所有名字, 获取已经存在的缓存
                 String name = connector.toString();
-                ConnectorBean connectorBean = connectorCache.getConnector(name);
+                ConnectorBean connectorBean = new ConnectorBean();
+//                ConnectorBean connectorBean = connectorCache.getConnector(name);
 
                 //获取详情
                 GetMethod config = new GetMethod(url + "/connectors/" + name);
-                client.executeMethod(config);
+                do {
+                    Thread.sleep(100);
+                    client.executeMethod(config);
+                } while (config.getStatusLine().getStatusCode() != 200);
                 JSONObject connectorConfig = JSON.parseObject(config.getResponseBodyAsString());
                 connectorBean.readConfig(connectorConfig);
 
@@ -180,7 +185,7 @@ public class DataAccessServiceImpl implements DataAccessService {
                 //更新cache
                 connectorCache.addConnector(connectorBean);
             }
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
